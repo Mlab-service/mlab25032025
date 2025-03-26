@@ -14,30 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // 产品筛选功能
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    // Product cards display
     const productCards = document.querySelectorAll('.product-card');
     
-    if (filterButtons.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // 移除所有按钮的active类
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // 添加当前按钮的active类
-                button.classList.add('active');
-                
-                const category = button.getAttribute('data-filter');
-                
-                productCards.forEach(card => {
-                    if (category === 'all') {
-                        card.style.display = 'block';
-                    } else {
-                        card.classList.contains(category) ? 
-                            card.style.display = 'block' : 
-                            card.style.display = 'none';
-                    }
-                });
-            });
+    if (productCards.length > 0) {
+        productCards.forEach(card => {
+            card.style.display = 'block';
         });
     }
     

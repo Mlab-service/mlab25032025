@@ -310,29 +310,7 @@ ul {
     padding: 120px 5% 80px;
 }
 
-.filter-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
 
-.filter-btn {
-    background-color: transparent;
-    border: 1px solid #D4AF37;
-    color: #FFFFFF;
-    padding: 8px 20px;
-    margin: 0 10px 10px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    font-family: 'Roboto Condensed', sans-serif;
-}
-
-.filter-btn:hover, .filter-btn.active {
-    background-color: #D4AF37;
-    color: #1A1A1A;
-}
 
 .products-grid {
     display: grid;
