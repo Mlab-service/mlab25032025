@@ -46,13 +46,47 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 表单提交事件
-    const contactForm = document.querySelector('.contact-form form');
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            // 如果使用formspree.io，则不需要阻止默认提交行为
-            // 这里可以添加表单验证逻辑
-            console.log('表单提交');
+            e.preventDefault();
+            
+            // 显示加载状态
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // 准备发送到两个邮箱的数据
+            const templateParams = {
+                name: this.querySelector('#name').value,
+                email: this.querySelector('#email').value,
+                message: this.querySelector('#message').value,
+                to_email1: 'sales@mlab-technical.com.au',
+                to_email2: 'wscqdcn@hotmail.com'
+            };
+            
+            // 使用EmailJS发送邮件
+            emailjs.send('service_6ykklxa', 'template_dce6ut4', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    formStatus.textContent = 'Your message has been sent successfully!';
+                    formStatus.style.color = '#4CAF50';
+                    formStatus.style.display = 'block';
+                    contactForm.reset();
+                })
+                .catch(function(error) {
+                    console.log('FAILED...', error);
+                    formStatus.textContent = 'Failed to send message. Please try again later.';
+                    formStatus.style.color = '#F44336';
+                    formStatus.style.display = 'block';
+                })
+                .finally(function() {
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                });
         });
     }
     
