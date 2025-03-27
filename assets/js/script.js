@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 准备发送到两个邮箱的数据
             const templateParams = {
-                name: this.querySelector('#name').value,
-                email: this.querySelector('#email').value,
+                from_name: this.querySelector('#name').value,
+                from_email: this.querySelector('#email').value,
                 message: this.querySelector('#message').value,
                 to_email1: 'sales@mlab-technical.com.au',
                 to_email2: 'wscqdcn@hotmail.com'
