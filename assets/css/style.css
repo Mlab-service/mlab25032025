@@ -140,6 +140,35 @@ ul {
     animation-fill-mode: both;
 }
 
+.wavy-text {
+    background: linear-gradient(45deg, #D4AF37 30%, #FFD700 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: 1px;
+    animation: wave 3s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(5px);
+    }
+}
+
 .btn {
     display: inline-block;
     background-color: #D4AF37;
